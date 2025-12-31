@@ -1,3 +1,3 @@
 <p align="center">
-  <img src="./banner.svg" width="100%"/>
+  <img src="https://raw.githubusercontent.com/username/reponame/main/banner.svg" width="100%" />
 </p>
