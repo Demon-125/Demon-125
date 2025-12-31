@@ -1,37 +1,74 @@
-<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
 
   <defs>
-    <style>
-      .title {
-        font-family: sans-serif;
-        font-weight: 700;
-      }
-      .subtitle {
-        font-family: sans-serif;
-        font-weight: 500;
-      }
-    </style>
-
+    <!-- Gradient Background -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0f1f"/>
-      <stop offset="100%" stop-color="#111827"/>
+      <stop offset="0%" stop-color="#0A0F1F"/>
+      <stop offset="100%" stop-color="#101624"/>
     </linearGradient>
 
-    <linearGradient id="titleGradient" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#6a00ff"/>
-      <stop offset="100%" stop-color="#d600ff"/>
-    </linearGradient>
-
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="25" result="blur"/>
-      <feBlend in="SourceGraphic" in2="blur" mode="screen"/>
+    <!-- Glow Shadow -->
+    <filter id="cardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60" result="shadow"/>
+      <feBlend in="SourceGraphic" in2="shadow" mode="screen"/>
     </filter>
+
+    <!-- Gradient Text -->
+    <linearGradient id="textGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8A2FFF"/>
+      <stop offset="100%" stop-color="#DA22FF"/>
+    </linearGradient>
+
+    <!-- Social Button Glow Filter -->
+    <filter id="buttonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+
+    <!-- Font fallback -->
+    <style>
+      .poppins { font-family: Arial, sans-serif; font-weight: 600; letter-spacing:-1px; }
+      .subtext { font-family: Arial, sans-serif; opacity:0.85; }
+    </style>
   </defs>
 
-  <rect x="50" y="50" width="1500" height="800" rx="50" fill="url(#bg)" stroke="#334155" stroke-width="2"/>
+  <!-- BACKGROUND -->
+  <rect width="1600" height="900" fill="url(#bg)"/>
 
-  <text x="800" y="230" font-size="82" class="title" fill="url(#titleGradient)" text-anchor="middle">
+  <!-- MAIN CARD -->
+  <rect x="100" y="100" width="1400" height="700" rx="55"
+        fill="rgba(15,25,45,0.6)" stroke="#334155" stroke-width="2"
+        filter="url(#cardGlow)"/>
+
+  <!-- TITLE -->
+  <text x="800" y="260" font-size="85" text-anchor="middle"
+        class="poppins" fill="url(#textGradient)">
     Connect with Me
+  </text>
+
+  <!-- SOCIAL BUTTONS -->
+  <!-- Twitter -->
+  <rect x="350" y="350" width="130" height="130" rx="30" fill="#1DA1F2" filter="url(#buttonGlow)"/>
+  <path fill="white" d="M463.8 389.2c-4.3 2-8.9 3.3-13.7 3.9 4.9-2.9 8.7-7.5 10.5-13 -4.6 2.7-9.7 4.6-15.1 5.6 -4.3-4.6-10.4-7.5-17.2-7.5 -13 0-23.5 10.5-23.5 23.5 0 1.8 .2 3.6 .6 5.3 -19.5-1-36.8-10.3-48.4-24.6 -2 3.5 -3.1 7.5 -3.1 11.8 0 8.1 4.1 15.3 10.3 19.4 -3.8-.1 -7.4-1.2 -10.5-2.9v.3c0 11.3 8.1 20.7 18.8 22.8 -2  .5 -4.1 .8 -6.3 .8 -1.5 0 -3-.1 -4.4-.4 3 9.4 11.7 16.2 22 16.4 -8.1 6.3 -18.3 10.1 -29.3 10.1 -1.9 0 -3.7-.1 -5.5-.3 10.5 6.8 22.9 10.7 36.2 10.7 43.4 0 67.2-35.9 67.2-67.2 0-1 0-2-.1-3 4.6-3.2 8.6-7.3 11.8-11.9z"/>
+
+  <!-- LinkedIn -->
+  <rect x="520" y="350" width="130" height="130" rx="30" fill="#0A66C2" filter="url(#buttonGlow)"/>
+  <path fill="white" d="M562 392h30v90h-30v-90zm15-44c10 0 18 8 18 18s-8 18-18 18-18-8-18-18 8-18 18-18zm38 44h28v12h.4c4-7 14-14 29-14 31 0 37 20 37 46v50h-30v-44c0-10 0-24-15-24 -15 0-18 12-18 23v45h-30v-94z"/>
+
+  <!-- Instagram -->
+  <rect x="690" y="350" width="130" height="130" rx="30" fill="#E1306C" filter="url(#buttonGlow)"/>
+  <path fill="white" d="M755 387c-17 0-31 14-31 31s14 31 31 31 31-14 31-31 -14-31 -31-31zm0 51c-11 0-20-9-20-20s9-20 20-20 20 9 20 20 -9 20 -20 20zm40-54c0 4-3 7-7 7s-7-3-7-7 3-7 7-7 7 3 7 7zm14 7c-1-8-4-15-9-21 -5-6-12-10-21-11 -8-1-33-1-41 0 -8 1-15 5-21 11 -6 6-10 13-11 21 -1 8-1 33 0 41 1 8 5 15 11 21 6 6 13 10 21 11 8 1 33 1 41 0 8-1 15-5 21-11 6-6 10-13 11-21 1-8 1-33 0-41z"/>
+
+  <!-- Discord -->
+  <rect x="860" y="350" width="130" height="130" rx="30" fill="#5865F2" filter="url(#buttonGlow)"/>
+  <path fill="white" d="M929 389c-15 0-27 12-27 27s12 27 27 27 27-12 27-27 -12-27 -27-27zm80-23c-20-15-43-18-43-18l-2 3c26 8 38 20 38 20 -32-17-73-17-104 0 0 0 12-12 38-20l-2-3s-22 3-43 18c0 0-22 41-22 91 0 0 13 22 47 23l5-6c-29-9 -40-30 -40-30 33 25 102 25 135 0 0 0 -11 21 -40 30l5 6c34-1 47-23 47-23 0-50-22-91-22-91z"/>
+
+  <!-- Twitch -->
+  <rect x="1030" y="350" width="130" height="130" rx="30" fill="#9146FF" filter="url(#buttonGlow)"/>
+  <path fill="white" d="M1070 395h70v80h-25l-15 15h-30v-15h-20v-80zm20 20v40h10v-40h-10zm30 0v40h10v-40h-10z"/>
+
+  <!-- SUBTEXT -->
+  <text x="800" y="650" text-anchor="middle" font-size="38" class="subtext" fill="#E2E8F0">
+    Let's build something awesome together! 🚀
   </text>
 
 </svg>
